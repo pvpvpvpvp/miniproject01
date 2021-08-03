@@ -1,6 +1,5 @@
 package mini.pack;
 
-import java.util.ArrayList;
 
 public class MiniData {
 	private String name;
@@ -30,10 +29,7 @@ public class MiniData {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	
-	
-	
-	public void listout(int arrayLength) {
-		System.out.printf("%d, %s %s %s%n",arrayLength+1,name,hp,tel);
+	public void listout(int listIndex) {
+		System.out.printf("%d, %s %s %s%n",listIndex+1,name,hp,tel); //0번지부터 시작해서 값 보정
 	}
 }
