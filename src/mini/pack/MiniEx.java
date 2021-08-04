@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+
 public class MiniEx {
 	static final String rootPath = System.getProperty("user.dir") + "\\\\"; // 이렇게하면 파일 입출력할때 project+파일이름 막을 수 있음
 	static String source = rootPath + "data.txt"; // 입력받는 파일
@@ -43,12 +44,14 @@ public class MiniEx {
 			MiniData a = new MiniData(add1[0], add1[0 + 1], add1[0 + 2]);
 			list.add(a);// 저장된 a(MiniData)형식을 넣어줌
 		}
+		br.close();
 		pro: while (true) {// pro:는 지정해서 break문을 위해 적어줌
 
 			System.out.println("=========================");
 			System.out.println("=    전화번호 관리 프로그램   =");
 			System.out.println("=========================");
 			System.out.println("1,리스트 2,등록 3,삭제 4,검색 5,종료");
+			System.out.print("메뉴 번호: ");
 			int add = sc.nextInt();
 
 			switch (add) { // 메소드로 간결하게
@@ -65,9 +68,11 @@ public class MiniEx {
 			case 4:
 				Find();
 				break;
-			default:
+			case 5:
 				WriteData();
 				break pro;
+			default:
+				System.out.println("[다시 입력해주세요]");
 			}
 		}
 	}
@@ -85,13 +90,17 @@ public class MiniEx {
 				bw.write(list.get(i).getTel());
 				bw.write("\n");
 			}
+			bw.flush();
+			bw.close();
 		}
 		System.out.println("=====================");
 		System.out.println("= 이용해주셔서 감사합니다! =");
 		System.out.println("=====================");
+		
 	}
 
 	public static void InputData() { // 데이터를 입력받아서 MinnData형식에 넣고 리스트에 추가
+		System.out.println();
 		System.out.printf("<2,등록>%n이름:");
 		String name = sc.next();
 		System.out.printf("휴대전화:");
@@ -112,12 +121,14 @@ public class MiniEx {
 
 	public static void listDelete() {
 		int Delnumber = 0;
+		System.out.println();
 		System.out.print("지울번호 입력하세요");
 		Delnumber = sc.nextInt();
 		list.remove(Delnumber - 1);// 값보정
 	}
 
 	public static void Find() {
+		System.out.println();
 		System.out.print("검색 단어 입력");
 		String name = sc.next();
 		int j = 0;
@@ -127,7 +138,7 @@ public class MiniEx {
 				j++;
 			}
 		}
-		if (j == 0) {
+		if (j == 0) { //찾기에 실패 할 경우 j==0이므로 
 			System.out.println("결과값이 없습니다");
 		}
 	}
