@@ -25,7 +25,7 @@ public class MiniEx {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		MiniData.name();
+
 		Startlistin();
 		pro: while (true) {// pro:는 지정해서 break문을 위해 적어줌
 			int a = InputNumer();

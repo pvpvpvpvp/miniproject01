@@ -32,7 +32,5 @@ public class MiniData {
 	public void listout(int listIndex) {
 		System.out.printf("%d, %s %s %s%n",listIndex+1,name,hp,tel); //0번지부터 시작해서 값 보정
 	}
-	public static void name() {
-		
-	}
+
 }
